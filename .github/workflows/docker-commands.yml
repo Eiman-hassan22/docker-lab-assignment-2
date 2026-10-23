@@ -39,4 +39,4 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
-          docker push "$DOCKERHUB_USERNAME/bse_16_commands:latest"
+          docker push "$DOCKERHUB_USERNAME/bse_016_commands:latest"
