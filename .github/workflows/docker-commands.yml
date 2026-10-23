@@ -3,6 +3,8 @@ name: Build and Publish with Docker Commands
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -30,12 +32,11 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
           docker build \
-            --file Dockerfile \
-            --tag "$DOCKERHUB_USERNAME/bse_016_commands:latest" \
-            .
+            -f Dockerfile \
+            -t "$DOCKERHUB_USERNAME/bse_16_commands:latest" .
 
       - name: Push Docker image
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
-          docker push "$DOCKERHUB_USERNAME/bse_016_commands:latest"
+          docker push "$DOCKERHUB_USERNAME/bse_16_commands:latest"
